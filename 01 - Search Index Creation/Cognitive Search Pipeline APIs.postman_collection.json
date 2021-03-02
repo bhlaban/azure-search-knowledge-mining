@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "cec9e78d-45ae-4b3d-acb0-b746f150baf2",
-		"name": "Cognitive Search Pipeline APIs",
+		"name": "Cognitive Search Pipeline APIs-Gov",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -227,8 +227,8 @@
 					"host": [
 						"{{search_service}}",
 						"search",
-						"windows",
-						"net"
+						"azure",
+						"us"
 					],
 					"path": [
 						"indexes",
@@ -298,8 +298,8 @@
 					"host": [
 						"{{search_service}}",
 						"search",
-						"windows",
-						"net"
+						"azure",
+						"us"
 					],
 					"path": [
 						"indexers",
