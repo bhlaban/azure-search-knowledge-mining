@@ -56,17 +56,13 @@
                 "description": "The SKU of the search service you want to create. E.g. free or standard"
             }
         },
-        "location": {
-            "type": "string",
-            "defaultValue": "USGov Virginia",
-            "allowedValues": [
-                "USGov Virginia",
-                "USGov Arizona"
-            ],
-            "metadata": {
-                "description": "Location where the Azure Search service and Cognitive Services account will be deployed."
-            }
-        }
+		"location": {
+		  "type": "string",
+		  "defaultValue": "[resourceGroup().location]",
+		  "metadata": {
+			"description": "Location for all resources."
+		  }
+		}
     },
     "variables": {
         "hostingPlanName": "[concat(parameters('resourcePrefix'), '-plan')]",
