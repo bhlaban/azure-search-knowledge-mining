@@ -58,29 +58,10 @@
         },
         "location": {
             "type": "string",
-            "defaultValue": "South Central US",
+            "defaultValue": "USGov Virginia",
             "allowedValues": [
-                "East Asia",
-                "Southeast Asia",
-                "Australia East",
-                "Brazil South",
-                "Canada Central",
-                "North Europe",
-                "West Europe",
-                "Central India",
-                "UK South",
-                "East US",
-                "East US 2",
-                "Central US",
-                "North Central US",
-                "South Central US",
-                "West Central US",
-                "West US",
-                "West US 2",
-                "Japan East",
-                "Japan West",
-                "Korea Central",
-                "France Central"
+                "USGov Virginia",
+                "USGov Arizona"
             ],
             "metadata": {
                 "description": "Location where the Azure Search service and Cognitive Services account will be deployed."
@@ -94,7 +75,6 @@
         "appInsightsName": "[concat(parameters('resourcePrefix'), '-app-insights')]",
         "searchServiceName": "[concat(parameters('resourcePrefix'), '-search-service')]",
         "cognitiveServicesAccountName": "[concat(parameters('resourcePrefix'), '-cognitive-services')]",
-        "functionAppName":"[concat(parameters('resourcePrefix'), '-function-app')]",
         "storageAccountId":"[concat(parameters('resourcePrefix'))]"
     },
     "resources": [
@@ -166,51 +146,6 @@
             "kind": "CognitiveServices",
             "location": "[toLower(replace(parameters('location'),' ', ''))]",
             "properties": {}
-        },
-        {
-            "apiVersion": "2016-03-01",
-            "type": "Microsoft.Web/sites",
-            "name": "[variables('functionAppName')]",
-            "location": "[parameters('location')]",
-            "kind": "functionapp",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-                "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
-            ],
-            "properties": {
-                "siteConfig": {
-                    "appSettings": [
-                        {
-                            "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2015-05-01-preview').key1, ';')]"
-                        },
-                        {
-                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
-                        },
-                        {
-                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2015-05-01-preview').key1, ';')]"
-                        },
-                      {
-                        "name": "WEBSITE_CONTENTSHARE",
-                        "value": "[toLower(variables('functionAppName'))]"
-                      },
-                        {
-                            "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "node"
-                        },
-                        {
-                            "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                            "value": "10.14.1"
-                        },
-                        {
-                            "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~2"
-                        }
-                    ]
-                }
-            }
         },
         { 
             "apiVersion": "2018-02-01",
