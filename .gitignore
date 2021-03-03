@@ -265,3 +265,4 @@ __pycache__/
 /PublishProfiles/
 *.pubxml
 /.vscode
+/02 - Web UI Template/CognitiveSearch.UI/Properties/ServiceDependencies/testkm-site - Web Deploy/profile.arm.json

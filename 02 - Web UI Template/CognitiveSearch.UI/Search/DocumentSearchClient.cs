@@ -49,7 +49,7 @@ namespace CognitiveSearch.UI
         private static string[] s_tokens = null;
 
         // this should match the default value used in appsettings.json.  
-        private static string defaultContainerUriValue = "https://{storage-account-name}.blob.core.windows.net/{container-name}";
+        private static string defaultContainerUriValue = "https://{storage-account-name}.blob.core.usgovcloudapi.net/{container-name}";
 
 
         public DocumentSearchClient(IConfiguration configuration)
@@ -65,7 +65,7 @@ namespace CognitiveSearch.UI
                 telemetryClient.InstrumentationKey = configuration.GetSection("InstrumentationKey")?.Value;
 
                 // Create an HTTP reference to the catalog index
-                _searchIndexClient = new SearchIndexClient(new Uri($"https://{searchServiceName}.search.windows.net/"), new AzureKeyCredential(apiKey));
+                _searchIndexClient = new SearchIndexClient(new Uri($"https://{searchServiceName}.search.azure.us/"), new AzureKeyCredential(apiKey));
                 _searchClient = _searchIndexClient.GetSearchClient(IndexName);
 
                 Schema = new SearchSchema().AddFields(_searchIndexClient.GetIndex(IndexName).Value.Fields);
@@ -174,14 +174,14 @@ namespace CognitiveSearch.UI
             if (polygonString != null && polygonString.Length > 0)
             {
                 string geoQuery = "geo.intersects(geoLocation, geography'POLYGON((" + polygonString + "))')";
-                
+
                 if (options.Filter != null && options.Filter.Length > 0)
-                { 
-                    options.Filter += " and " + geoQuery; 
+                {
+                    options.Filter += " and " + geoQuery;
                 }
                 else
-                { 
-                    options.Filter = geoQuery; 
+                {
+                    options.Filter = geoQuery;
                 }
             }
 
@@ -247,7 +247,7 @@ namespace CognitiveSearch.UI
 
         private async Task<string> GenerateSearchId(string searchText, SearchOptions options)
         {
-            var client = new SearchClient(new Uri($"https://{searchServiceName}.search.windows.net/"), IndexName, new AzureKeyCredential(apiKey));
+            var client = new SearchClient(new Uri($"https://{searchServiceName}.search.azure.us/"), IndexName, new AzureKeyCredential(apiKey));
             var response = await client.SearchAsync<SearchDocument>(searchText: searchText, options);
             IEnumerable<string> headerValues;
             string searchId = string.Empty;
@@ -268,9 +268,9 @@ namespace CognitiveSearch.UI
         {
             var facets = new List<String>();
 
-            foreach (var facet in facetNames) 
+            foreach (var facet in facetNames)
             {
-                 facets.Add($"{facet}, count:{maxCount}");
+                facets.Add($"{facet}, count:{maxCount}");
             }
 
             // Execute search based on query string
@@ -287,7 +287,7 @@ namespace CognitiveSearch.UI
                 {
                     options.Facets.Add(s);
                 }
-                
+
                 return _searchIndexClient.GetSearchClient(IndexName).Search<SearchDocument>(searchText, options);
             }
             catch (Exception ex)
@@ -362,7 +362,7 @@ namespace CognitiveSearch.UI
         /// </summary>
         public async Task RunIndexer()
         {
-            SearchIndexerClient _searchIndexerClient = new SearchIndexerClient(new Uri($"https://{searchServiceName}.search.windows.net/"), new AzureKeyCredential(apiKey));
+            SearchIndexerClient _searchIndexerClient = new SearchIndexerClient(new Uri($"https://{searchServiceName}.search.azure.us/"), new AzureKeyCredential(apiKey));
             var indexStatus = await _searchIndexerClient.GetIndexerStatusAsync(IndexerName);
             if (indexStatus.Value.LastResult.Status != IndexerExecutionStatus.InProgress)
             {
@@ -409,7 +409,8 @@ namespace CognitiveSearch.UI
             {
                 s_containerAddressesLength--;
             }
-            for (int i = 0; i < s_containerAddressesLength; i++) {
+            for (int i = 0; i < s_containerAddressesLength; i++)
+            {
                 BlobContainerClient container = new BlobContainerClient(new Uri(s_containerAddresses[i]), new StorageSharedKeyCredential(accountName, accountKey));
                 var policy = new BlobSasBuilder
                 {
@@ -422,7 +423,7 @@ namespace CognitiveSearch.UI
                 };
                 policy.SetPermissions(BlobSasPermissions.Read);
                 var sas = policy.ToSasQueryParameters(storageSharedKeyCredential);
-                BlobUriBuilder  sasUri = new BlobUriBuilder(container.Uri);
+                BlobUriBuilder sasUri = new BlobUriBuilder(container.Uri);
                 sasUri.Sas = sas;
 
                 s_tokens[i] = "?" + sasUri.Sas.ToString();
@@ -517,7 +518,7 @@ namespace CognitiveSearch.UI
                 {
                     if (element.Values.ToString().Length >= 4)
                     {
-                       
+
                         cleanValues.Add(new FacetValue() { value = element.Value.ToString(), count = element.Count });
                     }
                 }
