@@ -266,3 +266,4 @@ __pycache__/
 *.pubxml
 /.vscode
 /02 - Web UI Template/CognitiveSearch.UI/Properties/ServiceDependencies/testkm-site - Web Deploy/profile.arm.json
+/02 - Web UI Template/CognitiveSearch.UI/Properties/ServiceDependencies/test8psapp - Web Deploy/profile.arm.json

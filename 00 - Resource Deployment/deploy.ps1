@@ -38,7 +38,7 @@ function Deploy
     while (!($resourceGroupName = Read-Host "resourceGroupName")) { Write-Host "You must provide a resourceGroupName."; }
     while (!($subscriptionId = Read-Host "subscriptionId")) { Write-Host "You must provide a subscriptionId."; }
 
-    $defaultLocation = "SouthCentralUS"
+    $defaultLocation = "usgovvirginia"
     if (!($location = Read-Host "location [$defaultLocation]")) { $location = $defaultLocation }
     $defaultSearchSku = "basic"
     if (!($searchSku = Read-Host "searchSku [$defaultSearchSku]")) { $searchSku = $defaultSearchSku }
@@ -91,7 +91,7 @@ function Deploy
     {
         # Sign in
         Write-Host "Logging in for '$subscriptionId'";
-        Connect-AzAccount;
+        Connect-AzAccount -EnvironmentName AzureUSGovernment;
 
         # Select subscription
         Write-Host "Selecting subscription '$subscriptionId'";
@@ -150,7 +150,7 @@ function Deploy
             -Kind StorageV2 
         
         $global:storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName)[0].Value        
-        $global:storageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=' + $storageAccountName + ';AccountKey=' + $global:storageAccountKey + ';EndpointSuffix=core.windows.net' 
+        $global:storageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=' + $storageAccountName + ';AccountKey=' + $global:storageAccountKey + ';EndpointSuffix=core.usgovcloudapi.net' 
         Write-Host "Storage Account Key: '$global:storageAccountKey'";
                 
         $storageContext = New-AzStorageContext `
@@ -220,7 +220,7 @@ function Deploy
                 'Content-Type' = 'application/json' 
                 'Accept' = 'application/json' 
             }
-            $baseSearchUrl = "https://"+$searchServiceName+".search.windows.net"
+            $baseSearchUrl = "https://"+$searchServiceName+".search.azure.us"
             $fullUrl = $baseSearchUrl + $url
         
             Write-Host "Calling api: '"$fullUrl"'";
@@ -307,7 +307,7 @@ function Deploy
         Write-Host "SearchIndexerName: '$indexerName'";
         Write-Host "StorageAccountName: '$storageAccountName'";
         Write-Host "StorageAccountKey: '$global:storageAccountKey'";
-        $StorageContainerAddress = ("https://"+$storageAccountName+".blob.core.windows.net/"+$storageContainerName)
+        $StorageContainerAddress = ("https://"+$storageAccountName+".blob.core.usgovcloudapi.net/"+$storageContainerName)
         Write-Host "StorageContainerAddress: '$StorageContainerAddress'";
         Write-Host "------------------------------------------------------------";
 	}

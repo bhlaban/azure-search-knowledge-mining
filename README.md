@@ -47,9 +47,9 @@ Clone or download this repository and then navigate through each of these folder
 
 ![the cognitive indexing pipelines used for processing unstructured data in Azure Search](images/architecture.jpg)
 
-### [00 - Resource Deployment](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/00%20-%20Resource%20Deployment)
+### [00 - Resource Deployment](./00%20-%20Resource%20Deployment)
 
-The contents of this folder show you how to deploy the required resources to your Azure subscription. You can do this either through the [Azure portal](https://portal.azure.com) or using the provided [PowerShell script](https://github.com/Azure-Samples/azure-search-knowledge-mining/00%20-%20Resource%20Deployment/deploy.ps1).
+The contents of this folder show you how to deploy the required resources to your Azure subscription. You can do this either through the [Azure portal](https://portal.azure.com) or using the provided [PowerShell script](./00%20-%20Resource%20Deployment/deploy.ps1).
 
 Alternatively, you can automatically deploy the required resources using this button:
 
