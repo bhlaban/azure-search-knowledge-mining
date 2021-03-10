@@ -55,27 +55,27 @@ Alternatively, you can automatically deploy the required resources using this bu
 
 [![Deploy to Azure](images/AzureGov.JPG)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsmallangi%2Fazure-search-knowledge-mining%2Fmain%2Fazuredeploy.json)
 
-### [01 - Search Index Creation](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/01%20-%20Search%20Index%20Creation)
+### [01 - Search Index Creation](h./01%20-%20Search%20Index%20Creation)
 
 This folder contains a Postman collection that you can use to create a search index. The collection is pre-configured to take advantage of out-of-the-box Cognitive Search functionality.
 
 We recommend using this collection to create an initial search index and then iterating by editing the postman collection and adding custom skills as needed.
 
-### [02 - Web UI Template](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/02%20-%20Web%20UI%20Template)
+### [02 - Web UI Template](./02%20-%20Web%20UI%20Template)
 
-This folder contains a basic Web UI Template, written in .NET Core, which you can configure to query your search index. Follow the steps outlined in the [Web UI Template README file](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/02%20-%20Web%20UI%20Template) to integrate your new search index into the web app.
+This folder contains a basic Web UI Template, written in .NET Core, which you can configure to query your search index. Follow the steps outlined in the [Web UI Template README file](./02%20-%20Web%20UI%20Template) to integrate your new search index into the web app.
 
-### [03 - Data Science & Custom Skills](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/03%20-%20Data%20Science%20and%20Custom%20Skills)
+### [03 - Data Science & Custom Skills](./03%20-%20Data%20Science%20and%20Custom%20Skills)
 
 This folder contains examples and templates to add your own custom skills to your solution. These custom skills help to align the solution to the needs of your particular use case. This step is entirely optional and may be skipped if not needed.
 
 For additional samples and information on custom skill development, see the [Custom skill documentation](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface). .NET Azure Function Custom Skills have moved to the [Power Skills repository](https://github.com/Azure-Samples/azure-search-power-skills).
 
-### [04 - Reporting](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/04%20-%20Reporting)
+### [04 - Reporting](./04%20-%20Reporting)
 
 This folder contains pre-built PowerBI reports that you can use to monitor your solution and to understand user search behavior. They leverage data captured through [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and can be modified to meet your particular business objectives. This step is entirely optional and may be skipped if not needed.
 
-### [Sample Documents](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/master/sample_documents)
+### [Sample Documents](./sample_documents)
 
 This folder contains a small data set in a variety of file formats that you can use to build your solution if you don't have another data set available.
 
