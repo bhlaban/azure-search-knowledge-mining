@@ -17,7 +17,7 @@ urlFragment: azure-search-knowledge-mining
 
 ## About this repository
 
-Welcome to the Knowledge Mining Solution Accelerator! This is based on the Solution Accelerator developed for [Azure Commercial](https://github.com/Azure-Samples/azure-search-knowledge-mining). 
+Welcome to the Knowledge Mining Solution Accelerator! This is based on the [Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) developed for Azure Commercial. 
 
 This accelerator provides developers with all of the resources they need to quickly build an initial Knowledge Mining prototype with [Azure Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro). Use this accelerator to jump-start your development efforts with your own data or as a learning tool to better understand how you can use Cognitive Search to meet the unique needs of your business.
 
