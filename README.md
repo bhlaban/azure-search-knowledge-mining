@@ -13,11 +13,13 @@ urlFragment: azure-search-knowledge-mining
 
 ![Knowledge Mining Solution Accelerator](images/kmheader.png)
 
-# Knowledge Mining Solution Accelerator
+# Knowledge Mining Solution Accelerator for Azure Government
 
 ## About this repository
 
-Welcome to the Knowledge Mining Solution Accelerator! This accelerator provides developers with all of the resources they need to quickly build an initial Knowledge Mining prototype with [Azure Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro). Use this accelerator to jump-start your development efforts with your own data or as a learning tool to better understand how you can use Cognitive Search to meet the unique needs of your business.
+Welcome to the Knowledge Mining Solution Accelerator! This is based on the Solution Accelerator developed for [Azure Commercial](https://github.com/Azure-Samples/azure-search-knowledge-mining). 
+
+This accelerator provides developers with all of the resources they need to quickly build an initial Knowledge Mining prototype with [Azure Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro). Use this accelerator to jump-start your development efforts with your own data or as a learning tool to better understand how you can use Cognitive Search to meet the unique needs of your business.
 
 In this repository, we've provided you with all of the artifacts you need to quickly create a Cognitive Search Solution including: templates for deploying the appropriate Azure resources, assets for creating your first search index, templates for using custom skills, a basic web app, and PowerBI reports to monitor search solution performance. We've infused best practices throughout the documentation to help guide you. With Cognitive Search, you can easily index both digital data (such as documents and text files) and analog data (such as images and scanned documents).
 
@@ -55,7 +57,7 @@ Alternatively, you can automatically deploy the required resources using this bu
 
 [![Deploy to Azure](images/AzureGov.JPG)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsmallangi%2Fazure-search-knowledge-mining%2Fmain%2Fazuredeploy.json)
 
-### [01 - Search Index Creation](h./01%20-%20Search%20Index%20Creation)
+### [01 - Search Index Creation](./01%20-%20Search%20Index%20Creation)
 
 This folder contains a Postman collection that you can use to create a search index. The collection is pre-configured to take advantage of out-of-the-box Cognitive Search functionality.
 
@@ -65,13 +67,13 @@ We recommend using this collection to create an initial search index and then it
 
 This folder contains a basic Web UI Template, written in .NET Core, which you can configure to query your search index. Follow the steps outlined in the [Web UI Template README file](./02%20-%20Web%20UI%20Template) to integrate your new search index into the web app.
 
-### [03 - Data Science & Custom Skills](./03%20-%20Data%20Science%20and%20Custom%20Skills)
+### [03 - Data Science & Custom Skills](https://github.com/smallangi/azure-search-knowledge-mining/tree/main/03%20-%20Data%20Science%20and%20Custom%20Skills)
 
 This folder contains examples and templates to add your own custom skills to your solution. These custom skills help to align the solution to the needs of your particular use case. This step is entirely optional and may be skipped if not needed.
 
 For additional samples and information on custom skill development, see the [Custom skill documentation](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface). .NET Azure Function Custom Skills have moved to the [Power Skills repository](https://github.com/Azure-Samples/azure-search-power-skills).
 
-### [04 - Reporting](./04%20-%20Reporting)
+### [04 - Reporting](https://github.com/smallangi/azure-search-knowledge-mining/tree/main/04%20-%20Reporting)
 
 This folder contains pre-built PowerBI reports that you can use to monitor your solution and to understand user search behavior. They leverage data captured through [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and can be modified to meet your particular business objectives. This step is entirely optional and may be skipped if not needed.
 

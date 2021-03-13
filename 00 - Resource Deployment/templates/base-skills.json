@@ -87,54 +87,37 @@
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "context": "/document",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/merged_text"
-        }
+      "context": "/document/pages/*",
+      "categories": [
+        "Organization",
+        "Location",
+        "Person"
       ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Location" ],
-      "context": "/document",
+      "defaultLanguageCode": "en",
+      "minimumPrecision": 0.5,
+      "includeTypelessEntities": null,
       "inputs": [
         {
           "name": "text",
-          "source": "/document/merged_text"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "locations",
-          "targetName": "locations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Person" ],
-      "context": "/document",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/merged_text"
+          "source": "/document/pages/*"
         }
       ],
       "outputs": [
         {
           "name": "persons",
           "targetName": "persons"
+        },
+        {
+          "name": "locations",
+          "targetName": "locations"
+        },
+        {
+          "name": "organizations",
+          "targetName": "organizations"
         }
       ]
     }
+
+
   ]
 }

@@ -19,15 +19,15 @@
       "targetFieldName": "content"
     },
     {
-      "sourceFieldName": "/document/organizations",
+      "sourceFieldName": "/document/pages/*/organizations/*",
       "targetFieldName": "organizations"
     },
     {
-      "sourceFieldName": "/document/persons",
+      "sourceFieldName": "/document/pages/*/persons/*",
       "targetFieldName": "persons"
     },
     {
-      "sourceFieldName": "/document/locations",
+      "sourceFieldName": "/document/pages/*/locations/*",
       "targetFieldName": "locations"
     },
     {
