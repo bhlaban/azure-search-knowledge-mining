@@ -87,7 +87,7 @@
                     ],
                     "output": {
                         "type": "string",
-                        "value": "[toLower(if(endsWith(trim(parameters('resourcePrefix')), '-'), 'true', trim(parameters('resourcePrefix'))))]"
+                        "value": "[toLower(if(endsWith(trim(parameters('resourcePrefix')), '-'), substring(parameters('resourcePrefix'), 0, sub(length(parameters('resourcePrefix')),1)), trim(parameters('resourcePrefix'))))]"
                     }
                 },
                 "standardizeStoragePrefix": {
