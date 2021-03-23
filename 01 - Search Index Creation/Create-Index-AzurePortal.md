@@ -49,7 +49,7 @@ Keep the defaults and use `Choose an existing connection` to connect to your sto
 
 #### 4.1 Attach Cognitive Services
 
-An Cognitive Services reosurce should have been automatically provisioned, just select it. If it has not been provisioned successfully, use the `Create new Cognitive Services resource` link and create one:
+A Cognitive Services resource should have been automatically provisioned, just select it. If it has not been provisioned successfully, use the `Create new Cognitive Services resource` link and create one:
 
 ![screenshot](../images/createindex-step4.PNG)
 
